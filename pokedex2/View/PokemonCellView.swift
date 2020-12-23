@@ -58,7 +58,7 @@ struct PokemonCellView: View {
                     Image("type/"+String(pokemon.type[1]).lowercased())
                 }else{
                     Spacer()
-                        .frame(width: 34)
+                        .frame(width: 32)
                 }
                     
             }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 40, maxHeight: 40, alignment: .leading)

@@ -8,7 +8,17 @@
 import SwiftUI
 
 struct PokemonListView: View {
-    var pokemonViewModel = PokemonViewModel()
+    @State var moveToPokemonDetail = false
+    @Binding var buttonClick: Bool
+    @Binding var currentPokemon: Pokemon
+    
+    @Binding var pokemonViewModel: PokemonViewModel
+    
+    init(buttonClick: Binding<Bool>, currentPokemon: Binding<Pokemon>, pokemonViewModel: Binding<PokemonViewModel>){
+        self._buttonClick = buttonClick
+        self._currentPokemon = currentPokemon
+        self._pokemonViewModel = pokemonViewModel
+    }
     
     var body: some View {
         NavigationView{
@@ -16,7 +26,15 @@ struct PokemonListView: View {
                 VStack(spacing: 4){
                     //use list of pokemon from view model
                     ForEach(pokemonViewModel.PokemonList){ Pokemon in
-                        PokemonCellView(pokemon: Pokemon)
+                        Button(action: {
+                                withAnimation{
+                                    self.buttonClick.toggle()
+                                    currentPokemon = Pokemon
+                                }
+                            
+                        }){
+                            PokemonCellView(pokemon: Pokemon)
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
             }
@@ -24,8 +42,8 @@ struct PokemonListView: View {
     }
 }
 
-struct PokemonListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PokemonListView()
-    }
-}
+//struct PokemonListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PokemonListView(buttonClick: false)
+//    }
+//}

@@ -18,6 +18,7 @@
 		1A05EFFD2592D0D100DED837 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */; };
 		1A05F0012592D10E00DED837 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05F0002592D10E00DED837 /* Pokemon.swift */; };
 		1A05F0042592D12F00DED837 /* pokedex.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A05F0032592D12F00DED837 /* pokedex.json */; };
+		1AC00EF92592E2E1000A869B /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC00EF82592E2E1000A869B /* PokemonDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
 		1A05F0002592D10E00DED837 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		1A05F0032592D12F00DED837 /* pokedex.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokedex.json; sourceTree = "<group>"; };
+		1AC00EF82592E2E1000A869B /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				1A05EFF82592D08800DED837 /* PokemonListView.swift */,
 				1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */,
+				1AC00EF82592E2E1000A869B /* PokemonDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A05F0012592D10E00DED837 /* Pokemon.swift in Sources */,
+				1AC00EF92592E2E1000A869B /* PokemonDetailView.swift in Sources */,
 				1A05EFFD2592D0D100DED837 /* PokemonCellView.swift in Sources */,
 				1A05EFF92592D08800DED837 /* PokemonListView.swift in Sources */,
 				1A05EFDE2592CF8D00DED837 /* AppDelegate.swift in Sources */,
