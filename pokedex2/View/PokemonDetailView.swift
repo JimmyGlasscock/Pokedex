@@ -19,22 +19,22 @@ struct PokemonDetailView: View {
     }
     
     var body: some View {
-        ScrollView{
-            VStack(alignment: .center, spacing: 10){
-                //Pokemon Image View
-                HStack{
-                    Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
-                        .interpolation(.none)
-                        .resizable()
-                        .frame(width:160, height:160)
-                }
-                .frame(width:190, height:190)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 0)
-                                .stroke(Color.init(color), lineWidth: 10)
-                    )
+        ZStack{
+            //Color.init(PokemonCellView.getTypeColor(type: currentPokemon.type[0]))
+            ScrollView{
                 
-                PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
+                VStack(alignment: .center, spacing: 10){
+                    //Pokemon Image View
+                    HStack{
+                        Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
+                            .interpolation(.none)
+                            .resizable()
+                            .frame(width:160, height:160)
+                    }
+                    PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
+                    PokemonStatsView(base: currentPokemon.base)
+                }
+                .frame(alignment: .top)
             }
             .frame(alignment: .top)
         }
