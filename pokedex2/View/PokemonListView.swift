@@ -8,17 +8,12 @@
 import SwiftUI
 
 struct PokemonListView: View {
-    @State var moveToPokemonDetail = false
-    @Binding var buttonClick: Bool
-    @Binding var settingsButtonClick: Bool
     @Binding var currentPokemon: Pokemon
     @Binding var currentGeneration: Int
     
     @Binding var pokemonViewModel: PokemonViewModel
     
-    init(buttonClick: Binding<Bool>, settingsButtonClick: Binding<Bool>, currentPokemon: Binding<Pokemon>, pokemonViewModel: Binding<PokemonViewModel>, currentGeneration: Binding<Int>){
-        self._buttonClick = buttonClick
-        self._settingsButtonClick = settingsButtonClick
+    init(currentPokemon: Binding<Pokemon>, pokemonViewModel: Binding<PokemonViewModel>, currentGeneration: Binding<Int>){
         self._currentPokemon = currentPokemon
         self._pokemonViewModel = pokemonViewModel
         self._currentGeneration = currentGeneration
@@ -30,13 +25,9 @@ struct PokemonListView: View {
                 VStack{
                     //use list of pokemon from view model
                     ForEach(pokemonViewModel.PokemonList){ Pokemon in
-                        Button(action: {
-                                withAnimation{
-                                    self.buttonClick.toggle()
-                                    currentPokemon = Pokemon
-                                }
-                            
-                        }){
+                        NavigationLink(
+                            destination: PokemonDetailView(currentPokemon: Pokemon, currentGeneration: $currentGeneration))
+                        {
                             PokemonCellView(pokemon: Pokemon)
                         }.buttonStyle(PlainButtonStyle())
                     }
@@ -44,11 +35,7 @@ struct PokemonListView: View {
             }
             .navigationBarItems(trailing:
                 HStack{
-                    Button(action: {
-                    withAnimation{
-                        self.settingsButtonClick.toggle()
-                    }
-                    }){
+                    NavigationLink(destination: SettingsView(currentGeneration: $currentGeneration)){
                         Text("Settings")
                     }
                 }

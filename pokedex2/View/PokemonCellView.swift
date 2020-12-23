@@ -10,7 +10,7 @@ import SwiftUI
 struct PokemonCellView: View {
     let pokemon: Pokemon
     
-    let colors: [String: UIColor] = [
+    static let colors: [String: UIColor] = [
         "normal" : UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.5),
         "fire" : UIColor(red: 1.0, green: 0.7, blue: 0.7, alpha: 0.5),
         "water" : UIColor(red: 0.7, green: 0.7, blue: 1.0, alpha: 0.5),
@@ -64,11 +64,11 @@ struct PokemonCellView: View {
                     
             }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 40, maxHeight: 40, alignment: .leading)
             .padding(7)
-        .background(Color.init(getTypeColor(type: pokemon.type[0])))
+        .background(Color.init(PokemonCellView.getTypeColor(type: pokemon.type[0])))
             .cornerRadius(7)
         }
     
-    func getTypeColor(type: String) -> UIColor{
+    static func getTypeColor(type: String) -> UIColor{
         var color = UIColor.white
         
         if let newColor = colors[type.lowercased()]{

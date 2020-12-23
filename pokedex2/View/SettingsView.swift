@@ -9,36 +9,20 @@ import SwiftUI
 
 struct SettingsView: View {
     @Binding var currentGeneration: Int
-    @Binding var buttonClick: Bool
     
     var generations = [1,2,3,4,5]
     
-    init(buttonClick: Binding<Bool>, currentGeneration: Binding<Int>){
-        self._buttonClick = buttonClick
+    init(currentGeneration: Binding<Int>){
         self._currentGeneration = currentGeneration
     }
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    Picker(selection: $currentGeneration, label: Text("Generation"), content: {
-                        ForEach(generations, id: \.self){ generation in
-                            Text(String(generation))
-                            }
-                        })                        }
+        Form {
+            Picker(selection: $currentGeneration, label: Text("Generation"), content: {
+                ForEach(generations, id: \.self){ generation in
+                    Text(String(generation))
                     }
-        .navigationBarItems(leading:
-                HStack{
-                    Button(action: {
-                    withAnimation{
-                        self.buttonClick.toggle()
-                    }
-                    }){
-                        Text("Back")
-                }
-            })
-
+                })
         }
     }
 }

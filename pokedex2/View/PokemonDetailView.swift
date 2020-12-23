@@ -8,40 +8,35 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    @Binding var currentPokemon: Pokemon
+    var currentPokemon: Pokemon
+    var color: UIColor
     @Binding var currentGeneration: Int
-    @Binding var buttonClick: Bool
     
-    init(buttonClick: Binding<Bool>,currentPokemon: Binding<Pokemon>, currentGeneration: Binding<Int>) {
-        self._buttonClick = buttonClick
-        self._currentPokemon = currentPokemon
+    init(currentPokemon: Pokemon, currentGeneration: Binding<Int>) {
+        self.currentPokemon = currentPokemon
         self._currentGeneration = currentGeneration
+        self.color = PokemonCellView.getTypeColor(type: currentPokemon.type[0])
     }
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                VStack(alignment: .center, spacing: 10){
-                    //Pokemon Image View
+        ScrollView{
+            VStack(alignment: .center, spacing: 10){
+                //Pokemon Image View
+                HStack{
                     Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
                         .interpolation(.none)
                         .resizable()
                         .frame(width:160, height:160)
-                    
-                    PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
                 }
-                .frame(alignment: .top)
+                .frame(width:190, height:190)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 0)
+                                .stroke(Color.init(color), lineWidth: 10)
+                    )
+                
+                PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
             }
-            .navigationBarItems(leading:
-                HStack{
-                    Button(action: {
-                    withAnimation{
-                        self.buttonClick.toggle()
-                    }
-                    }){
-                        Text("Back")
-                }
-            })
+            .frame(alignment: .top)
         }
     }
 }
