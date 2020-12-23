@@ -13,6 +13,11 @@
 		1A05EFE42592CF8F00DED837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A05EFE32592CF8F00DED837 /* Assets.xcassets */; };
 		1A05EFE72592CF8F00DED837 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A05EFE62592CF8F00DED837 /* Preview Assets.xcassets */; };
 		1A05EFEA2592CF8F00DED837 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A05EFE82592CF8F00DED837 /* LaunchScreen.storyboard */; };
+		1A05EFF32592D04600DED837 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05EFF22592D04600DED837 /* PokemonViewModel.swift */; };
+		1A05EFF92592D08800DED837 /* PokemonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05EFF82592D08800DED837 /* PokemonListView.swift */; };
+		1A05EFFD2592D0D100DED837 /* PokemonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */; };
+		1A05F0012592D10E00DED837 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05F0002592D10E00DED837 /* Pokemon.swift */; };
+		1A05F0042592D12F00DED837 /* pokedex.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A05F0032592D12F00DED837 /* pokedex.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		1A05EFE62592CF8F00DED837 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A05EFE92592CF8F00DED837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A05EFEB2592CF8F00DED837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A05EFF22592D04600DED837 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		1A05EFF82592D08800DED837 /* PokemonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListView.swift; sourceTree = "<group>"; };
+		1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCellView.swift; sourceTree = "<group>"; };
+		1A05F0002592D10E00DED837 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		1A05F0032592D12F00DED837 /* pokedex.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pokedex.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,9 @@
 		1A05EFDC2592CF8D00DED837 /* pokedex2 */ = {
 			isa = PBXGroup;
 			children = (
+				1A05EFF72592D06A00DED837 /* View */,
+				1A05EFF62592D05C00DED837 /* Model */,
+				1A05EFF52592D05200DED837 /* ViewModel */,
 				1A05EFDD2592CF8D00DED837 /* AppDelegate.swift */,
 				1A05EFDF2592CF8D00DED837 /* SceneDelegate.swift */,
 				1A05EFE12592CF8D00DED837 /* ContentView.swift */,
@@ -63,6 +76,7 @@
 				1A05EFE82592CF8F00DED837 /* LaunchScreen.storyboard */,
 				1A05EFEB2592CF8F00DED837 /* Info.plist */,
 				1A05EFE52592CF8F00DED837 /* Preview Content */,
+				1A05F0032592D12F00DED837 /* pokedex.json */,
 			);
 			path = pokedex2;
 			sourceTree = "<group>";
@@ -73,6 +87,31 @@
 				1A05EFE62592CF8F00DED837 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A05EFF52592D05200DED837 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A05EFF22592D04600DED837 /* PokemonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1A05EFF62592D05C00DED837 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A05F0002592D10E00DED837 /* Pokemon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1A05EFF72592D06A00DED837 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1A05EFF82592D08800DED837 /* PokemonListView.swift */,
+				1A05EFFC2592D0D100DED837 /* PokemonCellView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A05F0042592D12F00DED837 /* pokedex.json in Resources */,
 				1A05EFEA2592CF8F00DED837 /* LaunchScreen.storyboard in Resources */,
 				1A05EFE72592CF8F00DED837 /* Preview Assets.xcassets in Resources */,
 				1A05EFE42592CF8F00DED837 /* Assets.xcassets in Resources */,
@@ -145,8 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A05F0012592D10E00DED837 /* Pokemon.swift in Sources */,
+				1A05EFFD2592D0D100DED837 /* PokemonCellView.swift in Sources */,
+				1A05EFF92592D08800DED837 /* PokemonListView.swift in Sources */,
 				1A05EFDE2592CF8D00DED837 /* AppDelegate.swift in Sources */,
 				1A05EFE02592CF8D00DED837 /* SceneDelegate.swift in Sources */,
+				1A05EFF32592D04600DED837 /* PokemonViewModel.swift in Sources */,
 				1A05EFE22592CF8D00DED837 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,8 +332,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"pokedex2/Preview Content\"";
+				DEVELOPMENT_TEAM = 568LD2W2LV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = pokedex2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,8 +354,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"pokedex2/Preview Content\"";
+				DEVELOPMENT_TEAM = 568LD2W2LV;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = pokedex2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
