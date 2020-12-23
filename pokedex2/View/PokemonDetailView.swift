@@ -32,9 +32,12 @@ struct PokemonDetailView: View {
                             .frame(width:160, height:160)
                     }
                     PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
+                    Spacer()
+                        .frame(height: 15)
                     PokemonStatsView(base: currentPokemon.base)
                 }
                 .frame(alignment: .top)
+                .padding(.top, -40)
             }
             .frame(alignment: .top)
         }
