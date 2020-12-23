@@ -17,24 +17,42 @@ struct PokemonDetailView: View {
     }
     
     var body: some View {
-        VStack{
-            Button(action: {
-                withAnimation{
-                    self.buttonClick.toggle()
+        ScrollView{
+            VStack(spacing: 10){
+                Button(action: {
+                    withAnimation{
+                        self.buttonClick.toggle()
+                    }
+                }){
+                    Text("Back")
                 }
-            }){
-                Text("<")
+                .frame(width: 50, height: 50)
+                
+                //Pokemon Image View
+                Image("sprites-4/"+String(currentPokemon.id))
+                    .resizable()
+                    .frame(width:160, height:160)
+                //Put Pokemon Number here
+                //Pokemon Name
+                Text(currentPokemon.name.english)
+                //Pokemon types
+                HStack{
+                    Image("type/"+currentPokemon.type[0].lowercased())
+                        .interpolation(.none)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 48, height: 21)
+                    if(currentPokemon.type.count > 1){
+                        Image("type/"+currentPokemon.type[1].lowercased())
+                            .interpolation(.none)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 48, height: 21)
+                    }
+                }
             }
-            .frame(width: 50, height: 50)
-            
-            //Pokemon Image View
-            Image("sprites-4/"+String(currentPokemon.id))
-                .resizable()
-                .frame(width:160, height:160)
-            //Pokemon Name, Type, Number View
-            Text(currentPokemon.name.english)
+            .frame(alignment: .top)
         }
-        .frame(alignment: .top)
     }
 }
 

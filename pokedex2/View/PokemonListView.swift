@@ -23,7 +23,7 @@ struct PokemonListView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                VStack(spacing: 4){
+                VStack{
                     //use list of pokemon from view model
                     ForEach(pokemonViewModel.PokemonList){ Pokemon in
                         Button(action: {

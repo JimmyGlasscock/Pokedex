@@ -44,6 +44,7 @@ struct PokemonCellView: View {
             
                 //change this based on selected generation
                 Image("icons-3/"+String(pokemon.id))
+                    .interpolation(.none)
                     .resizable()
                     .frame(width: 36, height: 36)
                     .padding(.top, -10)
