@@ -49,13 +49,6 @@ class PokemonViewModel{
         do{
             let decodedData: [Pokemon] = try JSONDecoder().decode([Pokemon].self, from: jsonData)
             
-            for pokemon in decodedData{
-                //stretch name to 10 chars to format properly
-                while(pokemon.name.english.count < 10){
-                    pokemon.name.english += " "
-                }
-            }
-            
             PokemonList = decodedData
         }catch{
             print(error)

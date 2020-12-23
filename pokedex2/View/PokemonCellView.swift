@@ -46,7 +46,7 @@ struct PokemonCellView: View {
                 Image("icons-3/"+String(pokemon.id))
                     .interpolation(.none)
                     .resizable()
-                    .frame(width: 36, height: 36)
+                    .frame(width: 40, height: 40)
                     .padding(.top, -10)
                 
                 //first pokemon type

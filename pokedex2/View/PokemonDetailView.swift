@@ -9,49 +9,39 @@ import SwiftUI
 
 struct PokemonDetailView: View {
     @Binding var currentPokemon: Pokemon
+    @Binding var currentGeneration: Int
     @Binding var buttonClick: Bool
     
-    init(buttonClick: Binding<Bool>,currentPokemon: Binding<Pokemon>) {
+    init(buttonClick: Binding<Bool>,currentPokemon: Binding<Pokemon>, currentGeneration: Binding<Int>) {
         self._buttonClick = buttonClick
         self._currentPokemon = currentPokemon
+        self._currentGeneration = currentGeneration
     }
     
     var body: some View {
-        ScrollView{
-            VStack(spacing: 10){
-                Button(action: {
+        NavigationView{
+            ScrollView{
+                VStack(alignment: .center, spacing: 10){
+                    //Pokemon Image View
+                    Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
+                        .interpolation(.none)
+                        .resizable()
+                        .frame(width:160, height:160)
+                    
+                    PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
+                }
+                .frame(alignment: .top)
+            }
+            .navigationBarItems(leading:
+                HStack{
+                    Button(action: {
                     withAnimation{
                         self.buttonClick.toggle()
                     }
-                }){
-                    Text("Back")
+                    }){
+                        Text("Back")
                 }
-                .frame(width: 50, height: 50)
-                
-                //Pokemon Image View
-                Image("sprites-4/"+String(currentPokemon.id))
-                    .resizable()
-                    .frame(width:160, height:160)
-                //Put Pokemon Number here
-                //Pokemon Name
-                Text(currentPokemon.name.english)
-                //Pokemon types
-                HStack{
-                    Image("type/"+currentPokemon.type[0].lowercased())
-                        .interpolation(.none)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 48, height: 21)
-                    if(currentPokemon.type.count > 1){
-                        Image("type/"+currentPokemon.type[1].lowercased())
-                            .interpolation(.none)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 48, height: 21)
-                    }
-                }
-            }
-            .frame(alignment: .top)
+            })
         }
     }
 }
