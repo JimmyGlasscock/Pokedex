@@ -13,6 +13,8 @@ struct PokemonListView: View {
     
     @Binding var pokemonViewModel: PokemonViewModel
     
+    var numberOfPokemon = [0, 151, 251, 386, 493, 649]
+    
     init(currentPokemon: Binding<Pokemon>, pokemonViewModel: Binding<PokemonViewModel>, currentGeneration: Binding<Int>){
         self._currentPokemon = currentPokemon
         self._pokemonViewModel = pokemonViewModel
@@ -24,11 +26,11 @@ struct PokemonListView: View {
             ScrollView{
                 VStack{
                     //use list of pokemon from view model
-                    ForEach(pokemonViewModel.PokemonList){ Pokemon in
+                    ForEach(0 ..< numberOfPokemon[currentGeneration]){ i in
                         NavigationLink(
-                            destination: PokemonDetailView(currentPokemon: Pokemon, currentGeneration: $currentGeneration))
+                            destination: PokemonDetailView(currentPokemon: pokemonViewModel.PokemonList[i], currentGeneration: $currentGeneration))
                         {
-                            PokemonCellView(pokemon: Pokemon)
+                            PokemonCellView(pokemon: pokemonViewModel.PokemonList[i])
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
