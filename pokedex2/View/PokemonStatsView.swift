@@ -13,8 +13,8 @@ struct PokemonStatsView: View {
     var colors = [
         UIColor.init(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.3),
         UIColor.init(red: 0.0, green: 0.2, blue: 0.8, alpha: 0.5),
-        UIColor.init(red: 0.5, green: 0.9, blue: 0.7, alpha: 0.3),
-        UIColor.init(red: 0.5, green: 0.9, blue: 0.7, alpha: 0.7)
+        UIColor.init(red: 0.5, green: 0.9, blue: 0.7, alpha: 0.6),
+        UIColor.init(red: 0.5, green: 0.9, blue: 0.7, alpha: 0.8)
     ]
     
     init(base: base){

@@ -11,6 +11,7 @@ import Foundation
 class PokemonViewModel{
     
     var PokemonList = [Pokemon]()
+    var FullPokemonList = [Pokemon]()
     
     init(){
         fillPokemonList()
@@ -50,6 +51,7 @@ class PokemonViewModel{
             let decodedData: [Pokemon] = try JSONDecoder().decode([Pokemon].self, from: jsonData)
             
             PokemonList = decodedData
+            FullPokemonList = PokemonList
         }catch{
             print(error)
         }

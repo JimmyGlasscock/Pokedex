@@ -26,7 +26,7 @@ struct PokemonListView: View {
             ScrollView{
                 VStack{
                     //use list of pokemon from view model
-                    ForEach(0 ..< numberOfPokemon[currentGeneration]){ i in
+                    ForEach(0 ..< numberOfPokemon[currentGeneration], id: \.self){ i in
                         NavigationLink(
                             destination: PokemonDetailView(currentPokemon: pokemonViewModel.PokemonList[i], currentGeneration: $currentGeneration))
                         {

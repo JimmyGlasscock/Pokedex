@@ -14,10 +14,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-                PokemonListView(currentPokemon: $currentPokemon, pokemonViewModel: $pokemonViewModel, currentGeneration: $currentGeneration)
+            PokemonListView(currentPokemon: $currentPokemon, pokemonViewModel: $pokemonViewModel, currentGeneration: $currentGeneration)
             }
         }
-    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
