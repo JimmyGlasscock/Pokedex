@@ -36,7 +36,10 @@ struct PokemonListView: View {
             .navigationBarItems(trailing:
                 HStack{
                     NavigationLink(destination: SettingsView(currentGeneration: $currentGeneration)){
-                        Text("Settings")
+                        Image("system-icons/setting")
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 25, height: 25)
                     }
                 }
             )

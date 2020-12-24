@@ -25,7 +25,8 @@ struct PokemonDetailView: View {
                 
                 VStack(alignment: .center, spacing: 10){
                     //Pokemon Image View
-                    HStack{
+                    ZStack{
+                        Rectangle().fill(Color.init(UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.15)))
                         Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
                             .interpolation(.none)
                             .resizable()
