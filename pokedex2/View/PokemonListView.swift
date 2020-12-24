@@ -34,7 +34,7 @@ struct PokemonListView: View {
                 }
             }
             .navigationBarItems(trailing:
-                HStack{
+                HStack(spacing: 25){
                     NavigationLink(destination: FavoritesView()){
                         Image("system-icons/star")
                             .resizable()

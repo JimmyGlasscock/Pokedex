@@ -10,6 +10,7 @@ import SwiftUI
 struct PokemonDetailView: View {
     var currentPokemon: Pokemon
     var color: UIColor
+    
     @Binding var currentGeneration: Int
     
     init(currentPokemon: Pokemon, currentGeneration: Binding<Int>) {
@@ -17,7 +18,6 @@ struct PokemonDetailView: View {
         self._currentGeneration = currentGeneration
         self.color = PokemonCellView.getTypeColor(type: currentPokemon.type[0])
     }
-    
     var body: some View {
         ZStack{
             //Color.init(PokemonCellView.getTypeColor(type: currentPokemon.type[0]))
@@ -30,7 +30,7 @@ struct PokemonDetailView: View {
                         Image("sprites-"+String(currentGeneration)+"/"+String(currentPokemon.id))
                             .interpolation(.none)
                             .resizable()
-                            .frame(width:160, height:160)
+                            .frame(width: 180, height: 180)
                     }
                     PokemonNameTypeView(name: currentPokemon.name, type: currentPokemon.type)
                     Spacer()
@@ -42,6 +42,12 @@ struct PokemonDetailView: View {
             }
             .frame(alignment: .top)
         }
+        /*
+         HStack {
+             Image("system-icon/star")
+             Image("system-icon/pokeball")
+         }
+         */
     }
 }
 
