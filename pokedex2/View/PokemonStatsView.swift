@@ -22,7 +22,10 @@ struct PokemonStatsView: View {
     }
     
     var body: some View {
-        HStack{
+        ZStack{
+            Rectangle().fill(Color.init(UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.15)))
+                .padding(.top, -10)
+                .padding(.bottom, -10)
             VStack(spacing: 15){
                 StatBarView(stat: base.HP, name: "HP", colorOne: colors[0], colorTwo: colors[1])
                 StatBarView(stat: base.Attack, name: "Attack", colorOne: colors[2], colorTwo: colors[3])
