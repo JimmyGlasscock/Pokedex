@@ -35,6 +35,18 @@ struct PokemonListView: View {
             }
             .navigationBarItems(trailing:
                 HStack{
+                    NavigationLink(destination: FavoritesView()){
+                        Image("system-icons/star")
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 25, height: 25)
+                    }
+                    NavigationLink(destination: CaughtPokemonView()){
+                        Image("system-icons/pokeball")
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 25, height: 25)
+                    }
                     NavigationLink(destination: SettingsView(currentGeneration: $currentGeneration)){
                         Image("system-icons/setting")
                             .resizable()
