@@ -23,8 +23,8 @@ struct PokemonListView: View {
     
     var body: some View {
         NavigationView{
-            ScrollView{
-                VStack{
+            //ScrollView{
+                List{
                     //use list of pokemon from view model
                     ForEach(0 ..< numberOfPokemon[currentGeneration], id: \.self){ i in
                         NavigationLink(
@@ -34,7 +34,7 @@ struct PokemonListView: View {
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
-            }
+            //}
             .navigationBarItems(trailing:
                 HStack(spacing: 25){
                     NavigationLink(destination: FavoritesView()){

@@ -31,41 +31,45 @@ struct PokemonCellView: View {
     ]
     
     var body: some View {
-        HStack(spacing: 17){
-            
-                Text(normalizePokemonNumber(id: pokemon.id))
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 35, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                //read language from settings or phone settings
-                Text(pokemon.name.english)
-                    .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 180, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                
-//                Spacer()
-//                    .frame(width: 15)
-            
-                //change this based on selected generation
-                Image("icons-3/"+String(pokemon.id))
-                    .interpolation(.none)
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .padding(.top, -10)
-                
-                //first pokemon type
-                if(!pokemon.type.isEmpty){
-                    Image("type/"+String(pokemon.type[0]).lowercased())
-                }
-            
-                //Second Type or spacer
-                if(pokemon.type.count > 1){
-                    Image("type/"+String(pokemon.type[1]).lowercased())
-                }else{
-                    Spacer()
-                        .frame(width: 32)
-                }
+            if #available(iOS 14, *) {
+                HStack(spacing: 17){
                     
-            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 40, maxHeight: 40, alignment: .leading)
-            .padding(7)
-        .background(Color.init(PokemonCellView.getTypeColor(type: pokemon.type[0])))
-            .cornerRadius(7)
+                        Text(normalizePokemonNumber(id: pokemon.id))
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 35, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        //read language from settings or phone settings
+                        Text(pokemon.name.english)
+                            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 180, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                        
+        //                Spacer()
+        //                    .frame(width: 15)
+                    
+                        //change this based on selected generation
+                        Image("icons-3/"+String(pokemon.id))
+                            .interpolation(.none)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding(.top, -10)
+                        
+                        //first pokemon type
+                        if(!pokemon.type.isEmpty){
+                            Image("type/"+String(pokemon.type[0]).lowercased())
+                        }
+                    
+                        //Second Type or spacer
+                        if(pokemon.type.count > 1){
+                            Image("type/"+String(pokemon.type[1]).lowercased())
+                        }else{
+                            Spacer()
+                                .frame(width: 32)
+                        }
+                            
+                    }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, minHeight: 40, maxHeight: 40, alignment: .leading)
+                    .padding(7)
+                .background(Color.init(PokemonCellView.getTypeColor(type: pokemon.type[0])))
+                    .cornerRadius(7)
+            }else{
+                //ios 13 layout
+            }
         }
     
     static func getTypeColor(type: String) -> UIColor{
